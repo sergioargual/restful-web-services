@@ -2,6 +2,7 @@ package com.in28minutes.rest.webservices.restfulwebservices;
 
 import org.springframework.web.bind.annotation.*;
 
+import javax.validation.Valid;
 import java.util.*;
 
 @RestController
@@ -21,7 +22,7 @@ public class UserResource {
         return service.retrieveOneUser(id);
     }
     @PostMapping("/users")
-    public void createUser(@RequestBody User user){
+    public void createUser(@Valid @RequestBody User user){
         service.saveUser(user);
     }
     @DeleteMapping("/users/{id}")

@@ -1,12 +1,16 @@
 package com.in28minutes.rest.webservices.restfulwebservices;
 
+import javax.validation.constraints.Past;
+import javax.validation.constraints.Size;
 import java.time.LocalDate;
 
 public class User {
 
 
     public int id;
+    @Size(min=1, message = "Name should have at least 1 character")
     public String name;
+    @Past(message = "Birth date should be in the past")
     public LocalDate birth;
 
 
